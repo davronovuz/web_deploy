@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Profile page {% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+    <div class="main-body">
+
+
+
+          <div class="row gutters-sm">
+            <div class="col-md-8">
+              <h3 class="text-center">Foydalanuvchi ma'lumotlari</h3>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Username</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                     {{ request.user.username }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ request.user.email }}
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " target="__blank" href="{% url 'logout_sahifa' %}">  Chiqish</a>
+                      <a class="btn btn-danger " target="__blank" href="#">  Tahrirlash</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+          </div>
+
+        </div>
+    </div>
+{% endblock content %}
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Ro'yxatdan O'tish {% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-2"></div>
+                <div class="col-md-6">
+                    <form method="POST" enctype="multipart/form-data">
+                        <h3>Ro'yxatdan O'tish</h3>
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button class="btn btn-success" type="submit">Yuborish</button>
+                         <p class="mt-3">Accountingiz bormi ? <a  class="mx-2" href="{% url 'login_sahifa' %}">Kirish</a></p>
+                    </form>
+                </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Qidiruv natijalari {% endblock title %}
+
+{% block content %}
+          <!-- Top News Start-->
+        <div class="top-news">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 tn-right">
+                        <div class="row">
+                            {% if query %}
+                                {% for new in results %}
+                                        <div class="col-md-6">
+                                            <div class="tn-img">
+                                                  <img src="{{ new.image.url }}" />
+                                                <div class="tn-content">
+                                                    <div class="tn-content-inner">
+                                                        <a class="tn-date" href="{% url 'detail' new.slug %}"><i class="far fa-clock"></i>{{ new.publish_time }}</a>
+                                                        <a class="tn-title"href="{% url 'detail' new.slug %}">{{ new.title }}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                {% endfor %}
+                            {% else %}
+                                <h2>Hech qanday yangilik topilmadi</h2>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top News End-->
+
+
+{% endblock content %}
